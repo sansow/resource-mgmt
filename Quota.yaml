@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-resources
+spec:
+  hard:
+    pods: "10" # Maximum number of pods
+    requests.cpu: "4" # Total amount of CPU time that can be requested by pods
+    requests.memory: 4Gi # Total amount of RAM that can be requested by pods
+    limits.cpu: "10" # Total amount of CPU time that can be used by pods
+    limits.memory: 10Gi # Total amount of RAM that can be used by pods
