@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: burstable-pod
+spec:
+  containers:
+  - name: container-1
+    image: nginx
+    resources:
+      requests:
+        memory: "1Gi"
+        cpu: "500m"
+      limits:
+        memory: "2Gi"
+        cpu: "1"
+
+#In this example, container-1 is classified as Burstable. It requests 500 millicores of CPU and 1Gi of memory, which Kubernetes will guarantee. 
+#However, it can use up to 1 CPU and 2Gi of memory if those resources are available and not being used by Guaranteed or higher-priority Burstable Pods.
+#This allows your Pod to have burstable capacity.
